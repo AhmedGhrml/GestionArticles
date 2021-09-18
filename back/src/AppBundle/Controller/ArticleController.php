@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Response;
 
 class ArticleController extends Controller
 {
@@ -182,6 +183,50 @@ class ArticleController extends Controller
         return new JsonResponse(['msg'=>"article  supprimé"]);
 
     }
+
+
+    /**
+     * @Route("api/articleAime/{id}")
+     * @Method("PUT")
+     * @param Request $request
+     * @param $id
+     *
+     * @return JsonResponse
+     */
+    public function aimerArticle(Request $request,$id )
+    {   $entityManager = $this->getDoctrine()->getManager();
+        $data = json_decode($request->getContent(), true);
+        $personne = $data['personne'];
+
+        $repository = $this->getDoctrine()->getRepository(Article::class);
+        $article = $repository->find($id);
+        $lesJaimes=$article->getAimes();
+        array_push($lesJaimes,$personne);
+        //print_r($nouveauArray);
+        print_r($lesJaimes);
+
+        $article->setAimes($lesJaimes);
+        $entityManager->persist($article);
+        $entityManager->flush();
+
+
+
+        $articlemodif = $repository->find($id);
+
+
+        if(empty($article)){
+            return new JsonResponse(['msg'=>'article non trouvé!!']);
+        }
+
+        $serializer = $this->get('jms_serializer');
+        $articleJson = $serializer->serialize($articlemodif,'json');
+        return new JsonResponse(json_decode($articleJson));
+    }
+
+
+
+
+
 
 
 }
