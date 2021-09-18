@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/back/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/back/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/back/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/back/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/back/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/back/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/back/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/composer" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/back/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/orm-pack" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/back/vendor/zendframework/zend-code" />
+      <path value="$PROJECT_DIR$/back/vendor/zendframework/zend-eventmanager" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/reflection" />
+      <path value="$PROJECT_DIR$/back/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/back/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/back/vendor/jms/serializer-bundle" />
+      <path value="$PROJECT_DIR$/back/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/back/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/back/vendor/nelmio/cors-bundle" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
+</project>
