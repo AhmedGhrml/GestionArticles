@@ -48,12 +48,12 @@
                     <div class="card mb-4">
                         <a href="#!"><img class="card-img-top" height="300" src="../../assets/article.png" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">Date Modification :{{article['date_modif']}}</div>
-                            <div class="small text-muted">Nombre j'aimes : {{article['aimes'].length}}</div>
-                            <h2 class="card-title h4">{{article['titre']}}</h2>
-                            <p class="card-text overflow-information" id="content">{{article['contenu']}}</p>
-                            <a   class="btn btn-primary" routerLink="/article" (click)="setIdArticle(article['id'])" href="#!">Details →</a>
-                            <a style="margin-left: 10px;" class="btn btn-success" (click)="aimerArticle(article['id'])">J'aime 👍</a>
+                            <div class="small text-muted">Date Modification :{{article.date_modif}}</div>
+                            <div class="small text-muted">Nombre j'aimes : {{article.aimes.length}}</div>
+                            <h2 class="card-title h4">{{article.titre}}</h2>
+                            <p class="card-text overflow-information" id="content">{{article.contenu}}</p>
+                            <a   class="btn btn-primary" routerLink="/article" (click)="setIdArticle(article.id)" href="#!">Details →</a>
+                            <button style="margin-left: 10px;" class="btn btn-success" (click)="aimerArticle(article.id)" [disabled]="article.auteur===auteur">J'aime 👍</button>
                         </div>
                     </div>
                     <!-- Blog post-->

@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {SharedServiceService} from "../shared/shared-service.service";
 import {arrayify} from "tslint/lib/utils";
 import {Router} from "@angular/router";
+import {Articles} from "../interfaces/articles";
 
 @Component({
     selector: 'app-all-articles',
@@ -10,7 +11,8 @@ import {Router} from "@angular/router";
     styleUrls: ['./all-articles.component.css']
 })
 export class AllArticlesComponent implements OnInit {
-    articles: any[] = [];
+    articles: Articles[] = [];
+    auteur="Ahmed Gharmol"
 
     constructor(private http: HttpClient, private shared: SharedServiceService, private router: Router) {
     }
