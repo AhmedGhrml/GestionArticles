@@ -10,6 +10,9 @@ import { Login2Component } from './login2/login2.component';
 import { AllArticlesComponent } from './all-articles/all-articles.component';
 import { NavComponent } from './nav/nav.component';
 import { ArticleComponent } from './article/article.component';
+import { AjouterArticleComponent } from './ajouter-article/ajouter-article.component';
+import { MesArticlesComponent } from './mes-articles/mes-articles.component';
+import { ModifArticleComponent } from './modif-article/modif-article.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { ArticleComponent } from './article/article.component';
     Login2Component,
     AllArticlesComponent,
     NavComponent,
-    ArticleComponent
+    ArticleComponent,
+    AjouterArticleComponent,
+    MesArticlesComponent,
+    ModifArticleComponent
   ],
   imports: [HttpClientModule,
       FormsModule,

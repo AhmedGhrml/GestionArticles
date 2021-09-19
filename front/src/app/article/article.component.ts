@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedServiceService} from "../shared/shared-service.service";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-article',
@@ -8,19 +9,22 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+    id:string
   auteur:string;
   datemodif:string;
   titre:string;
   contenu:string;
   personne:[];
-  constructor(private shared : SharedServiceService , private  http : HttpClient) { }
+  constructor(private shared : SharedServiceService , private  http : HttpClient ,private router : Router) { }
 
   ngOnInit(): void {
     console.log(this.shared.getArticleId());
+
     this.http.get(`http://localhost:8000/api/article/${this.shared.getArticleId()}`,{withCredentials:true}).subscribe(
         (res:any)=>{
           console.log(res.id);
           console.log(res.aimes);
+          this.id=res.id;
           this.auteur=res.auteur;
           this.datemodif=res.date_modif;
           this.titre=res.titre;
@@ -29,6 +33,20 @@ export class ArticleComponent implements OnInit {
 
         }
     )
+  }
+
+  aimerArticle(id:string){
+      this.http.put(`http://localhost:8000/api/articleAime/${id}`,JSON.stringify("ahmed") , {withCredentials:true ,  headers: {'Content-Type': 'text/plain'} }).subscribe(
+          (res:any)=>{
+              alert("Article liked!!!")
+              this.router.navigate(['articles'])
+          }
+
+      )
+
+
+
+
   }
 
 }

@@ -34,7 +34,7 @@ class ArticleController extends Controller
         $article->setTitre($titre);
         $article->setContenu($contenu);
         $article->setDateModif($dateModif);
-        $article->setAimes($aimes);
+        $article->setAimes([]);
 
         // tells Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($article);
@@ -108,6 +108,29 @@ class ArticleController extends Controller
     }
 
 
+
+    /**
+     * @Route("api/articleAuteur/{auteur}")
+     * @Method("GET")
+     * @param $id
+     * @return void
+     */
+    public  function getArticleByAuteur($auteur)
+    {
+        $repository = $this->getDoctrine()->getRepository(Article::class);
+        $article = $repository->findBy(['auteur'=>$auteur]);
+
+
+        if(empty($article)){
+            return new JsonResponse(['msg'=>'article non trouvé!!']);
+        }
+
+        $serializer = $this->get('jms_serializer');
+        $articleJson = $serializer->serialize($article,'json');
+        return new JsonResponse(json_decode($articleJson));
+    }
+
+
     /**
      * @Route("api/articless/{id}")
      * @Method("PUT")
@@ -119,9 +142,11 @@ class ArticleController extends Controller
     {   $entityManager = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
         $titre = $data['titre'];
+        $contenu = $data['contenu'];
         $repository = $this->getDoctrine()->getRepository(Article::class);
         $article = $repository->find($id);
         $article->setTitre($titre);
+        $article->setContenu($contenu);
         $entityManager->persist($article);
         $entityManager->flush();
 
@@ -168,7 +193,7 @@ class ArticleController extends Controller
 
     public function supprimerPlusieurArticles(Request $request)
     {   $data = json_decode($request->getContent(), true);
-            print_r($data);
+        print_r($data);
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(Article::class);
 
@@ -180,7 +205,7 @@ class ArticleController extends Controller
             $entityManager->flush();
         }
 
-        return new JsonResponse(['msg'=>"article  supprimé"]);
+        return new JsonResponse(['msg'=>" un ou plusieur article  supprimé"]);
 
     }
 

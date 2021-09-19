@@ -1,0 +1,24 @@
+
+<form [formGroup]="form" (submit)="submit()" class="form-signin">
+
+    <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+
+    <div class="form-floating">
+        <input  formControlName="titre" type="text" class="form-control" id="floatingInput" placeholder="Ahmed Gharmoul">
+        <label for="floatingInput">Titre</label>
+    </div>
+
+    <div class="form-floating">
+        <textarea formControlName="contenu" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+        <label for="floatingInput">Contenu</label>
+    </div>
+
+
+
+
+
+
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+</form>
