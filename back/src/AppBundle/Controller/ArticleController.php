@@ -196,14 +196,14 @@ class ArticleController extends Controller
     public function aimerArticle(Request $request,$id )
     {   $entityManager = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
-        $personne = $data['personne'];
+
 
         $repository = $this->getDoctrine()->getRepository(Article::class);
         $article = $repository->find($id);
         $lesJaimes=$article->getAimes();
-        array_push($lesJaimes,$personne);
+        array_push($lesJaimes,$data);
         //print_r($nouveauArray);
-        print_r($lesJaimes);
+
 
         $article->setAimes($lesJaimes);
         $entityManager->persist($article);

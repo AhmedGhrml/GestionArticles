@@ -7,12 +7,18 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { Login2Component } from './login2/login2.component';
+import { AllArticlesComponent } from './all-articles/all-articles.component';
+import { NavComponent } from './nav/nav.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    Login2Component
+    Login2Component,
+    AllArticlesComponent,
+    NavComponent,
+    ArticleComponent
   ],
   imports: [HttpClientModule,
       FormsModule,
