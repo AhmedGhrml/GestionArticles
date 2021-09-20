@@ -11,7 +11,7 @@ import {ModifArticleComponent} from "./modif-article/modif-article.component";
 const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'login2',component:Login2Component},
-    {path:'articles',component:AllArticlesComponent},
+    {path:'',component:AllArticlesComponent},
     {path:'article',component:ArticleComponent},
     {path:'article/ajouter',component:AjouterArticleComponent},
     {path:'article/mesarticles',component:MesArticlesComponent},
