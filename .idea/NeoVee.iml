@@ -23,6 +23,7 @@
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/doctrine/reflection" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/fig/link-util" />
+      <excludeFolder url="file://$MODULE_DIR$/back/vendor/friendsofsymfony/user-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/incenteev/composer-parameter-handler" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/jms/metadata" />
@@ -31,6 +32,7 @@
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/nelmio/cors-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/ocramius/proxy-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/back/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/phpstan/phpdoc-parser" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/back/vendor/psr/container" />

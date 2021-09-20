@@ -23,9 +23,9 @@
                 <!-- Post header-->
                 <header class="mb-4">
                     <!-- Post title-->
-                    <h1 class="fw-bolder mb-1">{{titre}}</h1>
+                    <h1 class="fw-bolder mb-1">{{article.titre}}</h1>
                     <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Publié le {{datemodif}} par {{auteur}}</div>
+                    <div class="text-muted fst-italic mb-2">Publié le {{article.datemodif}} par {{article.auteur}}</div>
                     <!-- Post categories-->
 
                 </header>
@@ -33,7 +33,7 @@
 
                 <!-- Post content-->
                 <section class="mb-5">
-                    <p class="fs-5 mb-4">{{contenu}}</p>
+                    <p class="fs-5 mb-4">{{article.contenu}}</p>
 
                 </section>
             </article>
@@ -42,8 +42,10 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <!-- Comment form-->
+
                         <form class="mb-4" *ngIf="personne.length>0">{{personne.length}} Personne(s) ont aimés cet article!!!<button style="margin-left: 10px;" (click)="aimerArticle(id)" [disabled]="auteur===currentUser" class="btn btn-success" routerLink="/article">J'aime 👍</button></form>
-                        <form class="mb-4" *ngIf="personne.length<=0"> Pas de j'aimes encore 😔<button style="margin-left: 10px;" (click)="aimerArticle(id)"  class="btn btn-success" [disabled]="auteur===currentUser" routerLink="/article">J'aime 👍</button></form>
+                        <form class="mb-4" *ngIf="personne.length<=0 && !liked"> Pas de j'aimes encore 😔<button style="margin-left: 10px;" (click)="aimerArticle(id)"  class="btn btn-success" [disabled]="auteur===currentUser" routerLink="/article">J'aime 👍</button></form>
+
                         <!-- Comment with nested comments-->
                         <div class="d-flex mb-4" *ngFor="let name of personne">
                             <!-- Parent comment-->

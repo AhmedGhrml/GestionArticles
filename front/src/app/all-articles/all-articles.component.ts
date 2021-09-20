@@ -14,18 +14,32 @@ export class AllArticlesComponent implements OnInit {
     articles: Articles[] = [];
     auteur="CurrentUser"
     authentificated:boolean=true
+    unique:any[]=[];
     constructor(private http: HttpClient, private shared: SharedServiceService, private router: Router) {
     }
 
     ngOnInit(): void {
         this.http.get('http://localhost:8000/api/articles', {withCredentials: true}).subscribe((res: any) => {
             for (let i = 0; i < res.length; i++) {
-                console.log(res[i])
+                //console.log(res[i])
                 this.articles.push(res[i])
+            }
+
+            console.log(this.articles.length)
+
+            for (let i = 0; i < this.articles.length; i++) {
+
+                console.log(this.articles[i].aimes)
+                this.articles[i].aimes = [...new Set(this.articles[i].aimes)];
+                this.unique[i]=[...new Set(this.articles[i].aimes)];
+                //console.log(this.unique)
             }
 
 
         })
+
+
+
     }
 
     setIdArticle(id) {
