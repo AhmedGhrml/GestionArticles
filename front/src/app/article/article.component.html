@@ -17,7 +17,7 @@
 <!-- Page content-->
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-15">
             <!-- Post content-->
             <article>
                 <!-- Post header-->
@@ -25,13 +25,12 @@
                     <!-- Post title-->
                     <h1 class="fw-bolder mb-1">{{titre}}</h1>
                     <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Posted on {{datemodif}} by {{auteur}}</div>
+                    <div class="text-muted fst-italic mb-2">Publié le {{datemodif}} par {{auteur}}</div>
                     <!-- Post categories-->
-                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+
                 </header>
                 <!-- Preview image figure-->
-                <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+
                 <!-- Post content-->
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{contenu}}</p>
@@ -43,15 +42,15 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <!-- Comment form-->
-                        <form class="mb-4">{{personne.length}} Personnes ont aimés cetr article!!<a style="margin-left: 10px;" (click)="aimerArticle(id)" class="btn btn-success" routerLink="/article">J'aime 👍</a></form>
+                        <form class="mb-4" *ngIf="personne.length>0">{{personne.length}} Personne(s) ont aimés cet article!!!<button style="margin-left: 10px;" (click)="aimerArticle(id)" [disabled]="auteur===currentUser" class="btn btn-success" routerLink="/article">J'aime 👍</button></form>
+                        <form class="mb-4" *ngIf="personne.length<=0"> Pas de j'aimes encore 😔<button style="margin-left: 10px;" (click)="aimerArticle(id)"  class="btn btn-success" [disabled]="auteur===currentUser" routerLink="/article">J'aime 👍</button></form>
                         <!-- Comment with nested comments-->
                         <div class="d-flex mb-4" *ngFor="let name of personne">
                             <!-- Parent comment-->
-                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="flex-shrink-0"><img class="rounded-circle" width="50" height="50" src="../../assets/avatar.png" alt="..." /></div>
                             <div class="ms-3" >
                                 <div class="fw-bold" >{{name}}</div>
-                                If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                <!-- Child comment 1-->
+                                        Aime cet article!                                <!-- Child comment 1-->
 
                             </div>
                         </div>
@@ -62,45 +61,7 @@
             </section>
         </div>
         <!-- Side widgets-->
-        <div class="col-lg-4">
-            <!-- Search widget-->
-            <div class="card mb-4">
-                <div class="card-header">Search</div>
-                <div class="card-body">
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Categories widget-->
-            <div class="card mb-4">
-                <div class="card-header">Categories</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Web Design</a></li>
-                                <li><a href="#!">HTML</a></li>
-                                <li><a href="#!">Freebies</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#!">JavaScript</a></li>
-                                <li><a href="#!">CSS</a></li>
-                                <li><a href="#!">Tutorials</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Side widget-->
-            <div class="card mb-4">
-                <div class="card-header">Side Widget</div>
-                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-            </div>
-        </div>
+
     </div>
 </div>
 <!-- Footer-->

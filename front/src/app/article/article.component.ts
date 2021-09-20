@@ -10,11 +10,13 @@ import {Router} from "@angular/router";
 })
 export class ArticleComponent implements OnInit {
     id:string
-  auteur:string;
-  datemodif:string;
-  titre:string;
-  contenu:string;
-  personne:[];
+    auteur:string;
+    currentUser:string="CurrentUser"
+    datemodif:string;
+    titre:string;
+    contenu:string;
+    personne:[];
+
   constructor(private shared : SharedServiceService , private  http : HttpClient ,private router : Router) { }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class ArticleComponent implements OnInit {
         (res:any)=>{
           console.log(res.id);
           console.log(res.aimes);
+          console.log(res.auteur)
           this.id=res.id;
           this.auteur=res.auteur;
           this.datemodif=res.date_modif;

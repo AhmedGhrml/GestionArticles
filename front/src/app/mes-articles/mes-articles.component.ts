@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {SharedServiceService} from "../shared/shared-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-mes-articles',
@@ -10,7 +11,7 @@ import {SharedServiceService} from "../shared/shared-service.service";
 export class MesArticlesComponent implements OnInit {
         articles : any[];
         idTab:string[];
-  constructor(private http : HttpClient , private shared:SharedServiceService) { }
+  constructor(private http : HttpClient , private shared:SharedServiceService , private router:Router) { }
 
   ngOnInit(): void {
     this.http.get("http://127.0.0.1:8000/api/articleAuteur/CurrentUser",{withCredentials:true}).subscribe(
@@ -33,6 +34,7 @@ export class MesArticlesComponent implements OnInit {
   supprimerArticles(id:string){
       this.http.delete(`http://127.0.0.1:8000/api/articles/${id}`,{withCredentials:true}).subscribe(
           (res:any)=>{
+              alert("Article supprimé")
               console.log(res)
 
           }
@@ -49,10 +51,15 @@ export class MesArticlesComponent implements OnInit {
       this.idTab=this.shared.getArticlesId()
       console.log(this.idTab)
       this.http.delete(`http://127.0.0.1:8000/api/articlesss/delete`,this.options).subscribe(
-          ((res:any)=>{
+          (res:any)=>{
+
               console.log(res)
           })
-      )
+      alert("Un ou plusieurs article supprimés")
+      let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
 
   }
 

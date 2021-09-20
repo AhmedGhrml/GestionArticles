@@ -12,8 +12,8 @@ import {Articles} from "../interfaces/articles";
 })
 export class AllArticlesComponent implements OnInit {
     articles: Articles[] = [];
-    auteur="Ahmed Gharmol"
-
+    auteur="CurrentUser"
+    authentificated:boolean=true
     constructor(private http: HttpClient, private shared: SharedServiceService, private router: Router) {
     }
 
@@ -33,7 +33,7 @@ export class AllArticlesComponent implements OnInit {
     }
 
     aimerArticle(id: string) {
-        this.http.put(`http://localhost:8000/api/articleAime/${id}`, JSON.stringify("ahmed"), {
+        this.http.put(`http://localhost:8000/api/articleAime/${id}`, JSON.stringify(this.auteur), {
             withCredentials: true,
             headers: {'Content-Type': 'text/plain'}
         }).subscribe(

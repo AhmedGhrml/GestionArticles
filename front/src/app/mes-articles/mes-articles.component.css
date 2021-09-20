@@ -181,3 +181,19 @@ ul {
     cursor: pointer;
     vertical-align: top;
 }
+.overflow-information{
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:300px;
+}
+
+.overflow-information-titre{
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:150px;
+}
+

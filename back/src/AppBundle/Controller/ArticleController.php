@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
 use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,7 +34,7 @@ class ArticleController extends Controller
         $article->setAuteur($auteur);
         $article->setTitre($titre);
         $article->setContenu($contenu);
-        $article->setDateModif($dateModif);
+        $article->setDateModif(date('d-m-Y H:i:s'));
         $article->setAimes([]);
 
         // tells Doctrine you want to (eventually) save the Product (no queries yet)
@@ -147,6 +148,7 @@ class ArticleController extends Controller
         $article = $repository->find($id);
         $article->setTitre($titre);
         $article->setContenu($contenu);
+        $article->setDateModif(date('d-m-Y H:i:s'));
         $entityManager->persist($article);
         $entityManager->flush();
 

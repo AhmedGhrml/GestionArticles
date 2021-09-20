@@ -23,7 +23,8 @@ export class ModifArticleComponent implements OnInit {
 
     ngOnInit(): void {
         console.log(this.shared.getArticleId())
-        this.date=(new Date().toISOString().slice(0, 10)).toString();
+        this.date=new Date().toString();
+        console.log(this.date)
         this.http.get(`http://localhost:8000/api/article/${this.shared.getArticleId()}`,{withCredentials:true}).subscribe(
             (res:any)=>{
                 console.log(res.id);
@@ -49,6 +50,8 @@ export class ModifArticleComponent implements OnInit {
     submit():void{
         this.http.put(`http://localhost:8000/api/articless/${this.shared.getArticleId()}`,this.form.getRawValue(),{withCredentials:true})
             .subscribe((res:any)=>{console.log(res)
+                alert("Article Modifié avec succées!")
+                this.router.navigate(['articles'])
 
             });
     }
