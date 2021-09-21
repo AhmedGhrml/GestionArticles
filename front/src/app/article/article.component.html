@@ -16,52 +16,52 @@
 
 <!-- Page content-->
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-15">
-            <!-- Post content-->
-            <article>
-                <!-- Post header-->
-                <header class="mb-4">
-                    <!-- Post title-->
-                    <h1 class="fw-bolder mb-1">{{article.titre}}</h1>
-                    <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Publié le {{article.datemodif}} par {{article.auteur}}</div>
-                    <!-- Post categories-->
-
-                </header>
-                <!-- Preview image figure-->
-
+        <div class="row">
+            <div class="col-lg-15">
                 <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">{{article.titre}}</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-2">Publié le {{article.date_modif}} par {{article.auteur}}</div>
+                        <!-- Post categories-->
+
+                    </header>
+                    <!-- Preview image figure-->
+
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <p class="fs-5 mb-4">{{article.contenu}}</p>
+
+                    </section>
+                </article>
+                <!-- Comments section-->
                 <section class="mb-5">
-                    <p class="fs-5 mb-4">{{article.contenu}}</p>
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <!-- Comment form-->
 
-                </section>
-            </article>
-            <!-- Comments section-->
-            <section class="mb-5">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <!-- Comment form-->
+                            <form class="mb-4" *ngIf="personne.length>0">{{personne.length}} Personne(s) ont aimés cet article!!!<button style="margin-left: 10px;" (click)="aimerArticle(id)" [disabled]="auteur===currentUser" class="btn btn-success" routerLink="/article">J'aime 👍</button></form>
+                            <form class="mb-4" *ngIf="personne.length<=0 && !liked"> Pas de j'aimes encore 😔<button style="margin-left: 10px;" (click)="aimerArticle(id)"  class="btn btn-success" [disabled]="auteur===currentUser" routerLink="/article">J'aime 👍</button></form>
 
-                        <form class="mb-4" *ngIf="personne.length>0">{{personne.length}} Personne(s) ont aimés cet article!!!<button style="margin-left: 10px;" (click)="aimerArticle(id)" [disabled]="auteur===currentUser" class="btn btn-success" routerLink="/article">J'aime 👍</button></form>
-                        <form class="mb-4" *ngIf="personne.length<=0 && !liked"> Pas de j'aimes encore 😔<button style="margin-left: 10px;" (click)="aimerArticle(id)"  class="btn btn-success" [disabled]="auteur===currentUser" routerLink="/article">J'aime 👍</button></form>
+                            <!-- Comment with nested comments-->
+                            <div class="d-flex mb-4" *ngFor="let name of personne">
+                                <!-- Parent comment-->
+                                <div class="flex-shrink-0"><img class="rounded-circle" width="50" height="50" src="../../assets/avatar.png" alt="..." /></div>
+                                <div class="ms-3" >
+                                    <div class="fw-bold" >{{name}}</div>
+                                            Aime cet article!                                <!-- Child comment 1-->
 
-                        <!-- Comment with nested comments-->
-                        <div class="d-flex mb-4" *ngFor="let name of personne">
-                            <!-- Parent comment-->
-                            <div class="flex-shrink-0"><img class="rounded-circle" width="50" height="50" src="../../assets/avatar.png" alt="..." /></div>
-                            <div class="ms-3" >
-                                <div class="fw-bold" >{{name}}</div>
-                                        Aime cet article!                                <!-- Child comment 1-->
-
+                                </div>
                             </div>
-                        </div>
-                        <!-- Single comment-->
+                            <!-- Single comment-->
 
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
         <!-- Side widgets-->
 
     </div>

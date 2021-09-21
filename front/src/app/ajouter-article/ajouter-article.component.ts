@@ -30,7 +30,7 @@ export class AjouterArticleComponent implements OnInit {
         this.http.post('http://localhost:8000/api/article/ajouter',this.form.getRawValue(),{withCredentials:true})
             .subscribe((res:any)=>{console.log(res)
                 alert("Article ajouté avec succées!")
-                this.router.navigate(['articles'])
+                this.router.navigate(['/'])
 
                 });
     }

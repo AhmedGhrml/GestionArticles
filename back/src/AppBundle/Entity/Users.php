@@ -5,15 +5,13 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
 /**
- * User
+ * Users
  *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
- *
+ * @ORM\Table(name="users")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UsersRepository")
  */
-class User implements UserInterface
+class Users implements UserInterface
 {
     /**
      * @var int
@@ -27,8 +25,14 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @ORM\Column(name="username", type="string", length=255)
+     */
+    private $username;
+
+    /**
+     * @var string
      *
+     * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
@@ -38,50 +42,6 @@ class User implements UserInterface
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="nbArticle", type="integer")
-     */
-    private $nbArticle;
-
-
-
-    /**
-     * Get nbArticle.
-     *
-     * @return int
-     */
-    public function getnbArticle()
-    {
-        return $this->nbArticle;
-    }
-
-
-    /**
-     * Set nbArticle.
-     *
-     * @param integer $nbArticle
-     *
-     * @return User
-     */
-    public function setnbArticle($nb)
-    {
-        $this->nbArticle = $nb;
-
-        return $this;
-    }
-
 
 
     /**
@@ -95,11 +55,35 @@ class User implements UserInterface
     }
 
     /**
+     * Set username.
+     *
+     * @param string $username
+     *
+     * @return Users
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username.
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
      * Set email.
      *
      * @param string $email
      *
-     * @return User
+     * @return Users
      */
     public function setEmail($email)
     {
@@ -123,7 +107,7 @@ class User implements UserInterface
      *
      * @param string $password
      *
-     * @return User
+     * @return Users
      */
     public function setPassword($password)
     {
@@ -143,30 +127,6 @@ class User implements UserInterface
     }
 
     /**
-     * Set name.
-     *
-     * @param string $name
-     *
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * Returns the roles granted to the user.
      *
      *     public function getRoles()
@@ -182,9 +142,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return[
-            'ROLE_USER'
-        ];
+        return ['ROLE_USER'];
     }
 
     /**
@@ -197,16 +155,6 @@ class User implements UserInterface
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
-    }
-
-    /**
-     * Returns the username used to authenticate the user.
-     *
-     * @return string The username
-     */
-    public function getUsername()
-    {
-        // TODO: Implement getUsername() method.
     }
 
     /**

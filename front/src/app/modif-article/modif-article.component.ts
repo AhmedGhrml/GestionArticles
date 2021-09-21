@@ -30,6 +30,7 @@ export class ModifArticleComponent implements OnInit {
                 console.log(res.id);
                 console.log(res.aimes);
                 console.log(res.titre)
+                this.datemodif=res.date_modif
 
 
                 this.form = this.formBuilder.group({

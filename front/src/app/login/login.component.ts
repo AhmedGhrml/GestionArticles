@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
       this.http.post('http://localhost:8000/api/register',this.form.getRawValue(),{withCredentials:true})
           .subscribe(()=>{
 
-              this.router.navigate(['/login2'])});
+              this.router.navigate(['/login2'])
+
+          });
   }
 
 }

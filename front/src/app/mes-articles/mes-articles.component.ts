@@ -35,10 +35,15 @@ export class MesArticlesComponent implements OnInit {
       this.http.delete(`http://127.0.0.1:8000/api/articles/${id}`,{withCredentials:true}).subscribe(
           (res:any)=>{
               alert("Article supprimé")
+              let currentUrl = this.router.url;
+              this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+              this.router.onSameUrlNavigation = 'reload';
+              this.router.navigate([currentUrl]);
               console.log(res)
 
           }
       )
+
   }
      options = {
         headers: new HttpHeaders({

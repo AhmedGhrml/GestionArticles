@@ -18,7 +18,6 @@ const routes: Routes = [
     {path:'article/modifer',component:ModifArticleComponent},
 
 
-
 ];
 
 @NgModule({

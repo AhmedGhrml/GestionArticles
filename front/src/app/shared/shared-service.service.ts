@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SharedServiceService {
   articleid:string
+  authentife:string
   multipleIdArticles:string[] = []
 
   constructor() { }
@@ -24,5 +25,14 @@ export class SharedServiceService {
 
     getArticlesId(){
         return this.multipleIdArticles;
+    }
+
+    getAuth(){
+        return this.authentife;
+    }
+
+    setAuth(auth:string){
+
+        this.authentife=auth
     }
 }
